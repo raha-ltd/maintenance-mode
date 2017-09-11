@@ -1,0 +1,19 @@
+{
+  "name": "maintenance-mode",
+  "version": "1.0.0",
+  "description": "static content to display while maintenance mode is active",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/raha-ltd/maintenance-mode.git"
+  },
+  "author": "armin.mohamady@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raha-ltd/maintenance-mode/issues"
+  },
+  "homepage": "https://github.com/raha-ltd/maintenance-mode#readme"
+}
