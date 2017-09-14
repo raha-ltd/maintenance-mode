@@ -5,10 +5,10 @@
   >
     <q-toolbar slot="header">
       <!--<q-btn-->
-        <!--flat-->
-        <!--@click="$refs.layout.toggleLeft()"-->
+      <!--flat-->
+      <!--@click="$refs.layout.toggleLeft()"-->
       <!--&gt;-->
-        <!--<q-icon name="menu" />-->
+      <!--<q-icon name="menu" />-->
       <!--</q-btn>-->
 
       <q-toolbar-title>
@@ -26,22 +26,7 @@
 </template>
 
 <script>
-import {
-  QLayout,
-  QToolbar,
-  QToolbarTitle,
-  QBtn,
-  QIcon,
-  QList,
-  QListHeader,
-  QItem,
-  QItemSide,
-  QItemMain
-} from 'quasar'
-
-export default {
-  name: 'index',
-  components: {
+  import {
     QLayout,
     QToolbar,
     QToolbarTitle,
@@ -52,27 +37,28 @@ export default {
     QItem,
     QItemSide,
     QItemMain
-  },
-  data () {
-    return {
-    }
+  } from 'quasar'
+
+  export default {
+    components: {
+      QLayout,
+      QToolbar,
+      QToolbarTitle,
+      QBtn,
+      QIcon,
+      QList,
+      QListHeader,
+      QItem,
+      QItemSide,
+      QItemMain
+    },
   }
-}
 </script>
 
 <style lang="stylus">
   .main
     span
       font-size 2rem
-  .logo-container
-    width 255px
-    height 242px
-    perspective 800px
-    position absolute
-    top 50%
-    left 50%
-    transform translateX(-50%) translateY(-50%)
-  .logo
-    position absolute
-    transform-style preserve-3d
 </style>
+
+<style></style>

@@ -1,5 +1,5 @@
 var
-  config = require('../config'),
+  config = require('../config/index'),
   webpack = require('webpack'),
   merge = require('webpack-merge'),
   cssUtils = require('./css-utils'),

@@ -1,6 +1,6 @@
 var
   path = require('path'),
-  config = require('../config'),
+  config = require('../config/index'),
   cssUtils = require('./css-utils'),
   webpack = require('webpack'),
   merge = require('webpack-merge'),

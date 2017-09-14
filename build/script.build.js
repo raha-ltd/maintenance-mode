@@ -7,7 +7,7 @@ var
   path = require('path'),
   env = require('./env-utils'),
   css = require('./css-utils'),
-  config = require('../config'),
+  config = require('../config/index'),
   webpack = require('webpack'),
   webpackConfig = require('./webpack.prod.conf'),
   targetPath = path.join(__dirname, '../dist')
