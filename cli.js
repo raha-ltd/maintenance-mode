@@ -42,6 +42,15 @@ function addRequestTerminationToUpstream (name) {
   })
 }
 
+function removeRequestTermination (name) {
+  return axios.delete(`${kongAdminApi}/apis/${name}/plugins/request-termination`).then(() => {
+    return Promise.resolve(true)
+  }).catch(e => {
+    console.log(e)
+    return Promise.reject('request error, try again')
+  })
+}
+
 vorpal
   .command('get <upstream> <plugin>', 'check if upstream has the specified plugin or not')
   .action(function (args, cb) {
@@ -62,22 +71,36 @@ vorpal
   .command('add <upstream>', 'add request-termination plugin to specified upstream')
   .option('-c, --check', 'check if upstream has the specified plugin')
   .action(function (args, cb) {
-    if (args.options.check) {
-      checkIfUpstreamHasPlugin(args.upstream, 'request-termination').then(response => {
-        if (response === true) {
-          this.log('request termination plugin is already added')
-          cb()
-          return
-        }
-      })
-    }
-
     if (upstreams.includes(args.upstream)) {
+      if (args.options.check) {
+        checkIfUpstreamHasPlugin(args.upstream, 'request-termination').then(response => {
+          if (response === true) {
+            this.log('request termination plugin is already added')
+            cb()
+            return
+          }
+        })
+      }
+
       addRequestTerminationToUpstream(args.upstream).then(response => {
         this.log(response)
         cb()
       }).catch(error => {
         this.log(error)
+        cb()
+      })
+    }
+  })
+
+vorpal
+  .command('rm <upstream>', 'remove request-termination plugin from the specified upstream')
+  .action(function (args, cb) {
+    if (upstreams.includes(args.upstream)) {
+      removeRequestTermination(args.upstream).then(() => {
+        this.log(`request termination plugin has been removed from ${args.upstream} upstream`)
+        cb()
+      }).catch(() => {
+        this.log('an error occurred')
         cb()
       })
     }
