@@ -7,8 +7,7 @@ var
   baseWebpackConfig = require('./webpack.base.conf'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
-  OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin'),
-  HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin')
+  OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = merge(baseWebpackConfig, {
   module: {
@@ -41,7 +40,6 @@ module.exports = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: path.resolve(__dirname, '../dist/index.html'),
       template: 'src/index.html',
-      inlineSource: '.(js|css)$',
       inject: true,
       minify: {
         removeComments: true,
@@ -53,6 +51,5 @@ module.exports = merge(baseWebpackConfig, {
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
     }),
-    new HtmlWebpackInlineSourcePlugin(),
   ]
 })

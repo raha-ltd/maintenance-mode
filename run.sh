@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-index=`cat ./dist/index.html`
+index=$(cat ./dist/index.html)
 
 curl -X POST http://localhost:8001/apis/lms/plugins \
     --data "name=request-termination" \
